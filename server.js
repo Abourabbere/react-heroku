@@ -4,6 +4,16 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
+const corsOptions = {
+    origin: '*',
+    // accept: '*/*',
+    credentials: true,
+    'allowedHeaders': ['sessionId', 'Content-Type'],
+    'exposedHeaders': ['sessionId'],
+    'method': 'POST,HEAD,PUT,GET,PATCH,DELETE',
+    'preflightContinue': false
+}
+
 // Les middleware telecharger
 App.use(cors(corsOptions))
 App.use(morgan('dev'))
@@ -15,7 +25,7 @@ App.use('/api/user', (req, res) => {
     res.send("je suis ici")
 });
 
-const port = 5000
+const port = 5500
 
 // Lancement du server soite sur le port 5000 ou 3000
 App.listen(port, () => {
