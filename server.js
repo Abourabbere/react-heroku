@@ -6,7 +6,6 @@ const cors = require('cors')
 
 const corsOptions = {
     origin: '*',
-    // accept: '*/*',
     credentials: true,
     'allowedHeaders': ['sessionId', 'Content-Type'],
     'exposedHeaders': ['sessionId'],
@@ -21,7 +20,7 @@ App.use(bodyParser.json())
 App.use(bodyParser.urlencoded({ extended: true }))
 
 //User api
-App.use('/api/user', (req, res) => {
+App.use('/', (req, res) => {
     res.send("je suis ici")
 });
 
